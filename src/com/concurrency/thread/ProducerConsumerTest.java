@@ -11,8 +11,8 @@ public class ProducerConsumerTest {
 	   public static void main(String[] args) {
 	        //Creating BlockingQueue of size 10
 	        BlockingQueue<Message> queue = new ArrayBlockingQueue<>(10);
-	        Producer producer = new Producer(queue);
-	        Consumer consumer = new Consumer(queue);
+	        ProducerThread producer = new ProducerThread(queue);
+	        ConsumerThread consumer = new ConsumerThread(queue);
 	        //starting producer to produce messages in queue
 	        new Thread(producer).start();
 	        //starting consumer to consume messages from queue
@@ -21,10 +21,10 @@ public class ProducerConsumerTest {
 	    }
 }
 
-class Producer implements Runnable {
+class ProducerThread implements Runnable {
 	private BlockingQueue<Message> queue = null;
 
-	public Producer(BlockingQueue<Message> q) {
+	public ProducerThread(BlockingQueue<Message> q) {
 		this.queue = q;
 	}
 
@@ -53,10 +53,10 @@ class Producer implements Runnable {
 	}
 }
 
-class Consumer implements Runnable {
+class ConsumerThread implements Runnable {
 	private BlockingQueue<Message> queue;
 
-	public Consumer(BlockingQueue<Message> q) {
+	public ConsumerThread(BlockingQueue<Message> q) {
 		this.queue = q;
 	}
 
