@@ -1,4 +1,4 @@
-package algorithm;
+package algorithms;
 
 import java.util.Scanner;
 
@@ -16,7 +16,7 @@ public class FirstNonRepeated {
         	{
         		if(letter != s.charAt(j))
         			continue;
-        		else
+        		
         			
         	}
           }
